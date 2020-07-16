@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>DialogMapper.qml</file>
+        <file>SmsTable.qml</file>
+    </qresource>
+    <qresource prefix="/image">
+        <file>icons/message.png</file>
+        <file>icons/contacts.png</file>
+        <file>icons/phone.png</file>
+        <file>icons/exit.png</file>
+    </qresource>
+</RCC>

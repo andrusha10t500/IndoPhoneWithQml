@@ -1,0 +1,8 @@
+select address, service_center, datetime(substr(date,0,length(date)-2), 'unixepoch', 'localtime') as date_, body from sms order by 3 desc limit 10;
+ select address, datetime(substr(date,0,length(date)-2), 'unixepoch', 'localtime') as date_, body, sub_id from sms where address='89144279109' or address='+79098620947'order by 3 desc limit 20;
+select a.display_name, b.normalized_number from raw_contacts a left join phone_lookup b on a._id = b.raw_contact_id limit 10;
+
+attach database "contacts2.db" as contacts
+
+select b.display_name, address, datetime(substr(date,0,length(date)-2), 'unixepoch', 'localtime') as date_, body, sub_id from sms a left join (select a.display_name, b.normalized_number from contacts.raw_contacts a left join contacts.phone_lookup b on a._id = b.raw_contact_id) b on a.address=b.normalized_number;
+select a.normalized_number, b.display_name from contacts.phone_lookup a left join contacts.raw_contacts b on a.raw_contact_id = b._id group by 1;
